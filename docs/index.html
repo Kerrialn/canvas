@@ -21,7 +21,6 @@
 	<div class="modal-content">
 
 			<div class="row">
-				<h5>Controls</h5>
 				<div class="col m6">
 					<div class="input-field">
 						<select id="type">
@@ -88,6 +87,7 @@
     <li><a class="btn-floating yellow darken-1 modal-trigger" href="#modal1"><i class="material-icons">settings</i></a></li>
 		<li><a class="btn-floating blue" onclick="changeColor();"><i class="material-icons">shuffle</i></a></li>
 		<li><a class="btn-floating green" onclick="downloadImage();"><i class="material-icons">file_download</i></a></li>
+    <li><a class="btn-floating red" onclick="clearCanvas();"><i class="material-icons">refresh</i></a></li>
   </ul>
 
 
@@ -113,14 +113,7 @@
 		var instance = M.FloatingActionButton.init(elems, {
 			hoverEnabled: false
 		});
-
-		var instance = M.FloatingActionButton.getInstance(elems[0]);
-		instance.open();
 	});
-	
-	document.addEventListener('change', function() {
-		instance.open();
-	})
 	</script>
 
 <script type="text/javascript" src="./main.js"></script>

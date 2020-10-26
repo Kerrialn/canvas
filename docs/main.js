@@ -10,10 +10,19 @@ const alpha = document.querySelector('#alpha');
 const strokeOrFill = document.querySelector('#strokeOrFill');
 const colorMe = document.querySelector('#colorMe');
 
- 
+
+let ctx = canvas.getContext('2d');
+ctx.fillStyle = "white";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+const clearCanvas = () =>{
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+} 
+
 document.addEventListener('DOMContentLoaded', function() {
   changeColor();
 });
+
 
 const downloadImage = () => {
 let img = new Image();
@@ -27,6 +36,7 @@ document.querySelector('#preview-holder').appendChild(img);
 
 
 const changeColor = () => {
+  
   red.value = Math.floor(Math.random() * 255);
   green.value = Math.floor(Math.random() * 255);
   blue.value = Math.floor(Math.random() * 255);
@@ -36,10 +46,6 @@ const changeColor = () => {
 }
 
 
-let ctx = canvas.getContext('2d');
-ctx.fillStyle = "white";
-ctx.fillRect(0, 0, canvas.width, canvas.height);
-
 canvas.addEventListener('mousemove', (event)=>{
 
   for (var i = 0; i < 2; i++) {
@@ -48,8 +54,11 @@ canvas.addEventListener('mousemove', (event)=>{
     let shape = new Path2D();
     let x = event.offsetX;
     let y = event.offsetY;
-    let rand = Math.floor(Math.random() * 11);
-    let rand2 = Math.floor(Math.random() * 51);
+    
+    let rr = Math.floor(Math.random() * 256);
+    let rg = Math.floor(Math.random() * 256);
+    let rb = Math.floor(Math.random() * 256);
+
     let size = Math.floor(circleSize.value * 2);
     let randomizer = Math.floor(Math.random() * randomize.value);
     let r = red.value;
@@ -65,15 +74,11 @@ canvas.addEventListener('mousemove', (event)=>{
       if(type.value == 2){
         shape.rect(x+j*randomizer, y+i*randomizer, size, size);
       }
-      
 
       if(strokeOrFill.value == 1){
         if(colorMe.checked){
-          ctx.strokeStyle = 'rgb(0, ' + Math.floor(255 - 42.5 * i) + ', ' + 
-          Math.floor(255 - 32.5 * j) + ')';
-
-          body.style.backgroundColor = 'rgb(0, ' + Math.floor(255 - 42.5 * i) + ', ' + 
-          Math.floor(255 - 42.5 * j) + ')';
+          ctx.strokeStyle = 'rgba('+rr+', '+rg+', '+rb+', 1)';
+          body.style.backgroundColor = 'rgba('+ r +', ' + g + ', ' + b + ', '+a+')'; 
         }else{
           ctx.strokeStyle = 'rgba('+ r +', ' + g + ', ' + b + ', '+a+')';  
           body.style.backgroundColor = 'rgba('+ r +', ' + g + ', ' + b + ', '+a+')'; 
@@ -83,12 +88,8 @@ canvas.addEventListener('mousemove', (event)=>{
 
       if(strokeOrFill.value == 2){
         if(colorMe.checked){
-          ctx.fillStyle = 'rgb(0, ' + Math.floor(255 - 42.5 * i) + ', ' + 
-          Math.floor(255 - 42.5 * j) + ')';
-
-          body.style.backgroundColor = 'rgb(0, ' + Math.floor(255 - 42.5 * i) + ', ' + 
-          Math.floor(255 - 42.5 * j) + ')';
-
+          ctx.fillStyle = 'rgba('+rr+', '+rg+', '+rb+', 1)';
+          body.style.backgroundColor = 'rgba('+ r +', ' + g + ', ' + b + ', '+a+')'; 
         }else{
           ctx.fillStyle = 'rgba('+ r +', ' + g + ', ' + b + ', '+a+')';  
           body.style.backgroundColor = 'rgba('+ r +', ' + g + ', ' + b + ', '+a+')'; 
