@@ -11,6 +11,8 @@ const strokeOrFill = document.querySelector('#strokeOrFill');
 const colorMe = document.querySelector('#colorMe');
 
 
+
+
 let ctx = canvas.getContext('2d');
 ctx.fillStyle = "white";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -36,12 +38,16 @@ document.querySelector('#preview-holder').appendChild(img);
 
 
 const changeColor = () => {
-  
+
+  type.value = Math.floor(Math.random() * 2) + 1;
+  strokeOrFill.value = Math.floor(Math.random() * 2) + 1;
+  randomize.value = Math.floor(Math.random() * 2) + 1;
+
   red.value = Math.floor(Math.random() * 255);
   green.value = Math.floor(Math.random() * 255);
   blue.value = Math.floor(Math.random() * 255);
   alpha.value = Math.random(0,1)
-
+  circleSize.value = Math.floor(Math.random() * 50);
   body.style.backgroundColor = 'rgba('+red.value+', '+green.value+', '+blue.value+', '+alpha.value+')'
 }
 
