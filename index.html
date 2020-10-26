@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="main.css" />
+	    <!-- Compiled and minified CSS -->
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		</head>
+<body>
+
+
+
+
+
+	
+<div class="container paint">
+	<canvas id="canvas" class="z-depth-4" width="1000" height="550"></canvas>
+</div>
+
+<div id="modal1" class="modal  bottom-sheet">
+	<div class="modal-content">
+
+			<div class="row">
+				<h1>Controls</h1>
+				<div class="col m6">
+					<div class="input-field">
+						<select id="type">
+							<option selected value="1">Circles</option>
+							<option value="2">Rectangle</option>
+						</select>
+						<label>Brush Type</label>
+					</div>
+		
+					<div class="input-field">
+						<select id="strokeOrFill">
+							<option selected value="1">Stroke</option>
+							<option value="2">Fill</option>
+						</select>
+						<label>Stroke or FIll</label>
+					</div>
+					<div class="input-field">
+						<p class="range-field">
+							size
+							<input type="range" id="circleSize" value="5" min="0" max="50" />
+						</p>
+					</div>
+					<div class="input-field">
+						<p class="range-field">
+							Random
+							<input type="range" id="randomize" value="30" min="0" max="150" />
+						</p>
+					</div>
+				</div>
+				<div class="col m6">
+					<div class="input-field">
+						<p>
+							<label for="colorMe">
+								<input type="checkbox" id="colorMe" value="0" />
+								<span>Randomize</span>
+							</label>
+						</p>
+						<p class="range-field">
+							Red
+							<input type="range" id="red" value="255" min="0" max="255" />
+						</p>
+						<p class="range-field">
+							Green
+							<input type="range" id="green" value="150" min="0" max="255" />
+						</p>
+						<p class="range-field">
+							Blue
+							<input type="range" id="blue" value="150" min="0" max="255" />
+						</p>
+						<p class="range-field">
+							Opacity
+							<input type="range" id="alpha" step="0.1" value="0.7" min="0" max="1" />
+						</p>
+					</div>
+				</div>
+			</div>
+		
+	</div>
+</div>
+
+
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large black modal-trigger" href="#modal1">
+    <i class="large material-icons">settings</i>
+  </a>
+</div>
+
+
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() {
+		var elems = document.querySelectorAll('select');
+		var instances = M.FormSelect.init(elems, {});
+	});
+	</script>
+
+	<script  type="text/javascript">
+			document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems, {});
+  });
+	</script>
+
+<script type="text/javascript" src="main.js"></script>
+			<!-- Compiled and minified JavaScript -->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+		</body>
+</html>
