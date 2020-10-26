@@ -3,12 +3,33 @@ body{
   background-color: rgba(0, 0, 0, 0.05);
 }
 
+.fixed-btn{
+  position: fixed;
+  right: 20px;
+  top: 10px;
+}
+.fixed-btn li{
+  margin-bottom: 10px;
+}
+
 .paint{
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+#preview-holder{
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.preview-image{
+  width: 100%;
+  margin-bottom: 10px;
+}
+
 
 #canvas{
   text-align: center;

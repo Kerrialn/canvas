@@ -9,15 +9,19 @@
 		</head>
 <body>
 
-<div class="container paint">
+<div class="paint">
 	<canvas id="canvas" class="z-depth-4" width="1000" height="550"></canvas>
+</div>
+
+<div class="">
+	<div class="row" id="preview-holder"></div>
 </div>
 
 <div id="modal1" class="modal  bottom-sheet">
 	<div class="modal-content">
 
 			<div class="row">
-				<h1>Controls</h1>
+				<h5>Controls</h5>
 				<div class="col m6">
 					<div class="input-field">
 						<select id="type">
@@ -57,19 +61,19 @@
 						</p>
 						<p class="range-field">
 							Red
-							<input type="range" id="red" value="255" min="0" max="255" />
+							<input type="range" id="red" value="" min="0" max="255" />
 						</p>
 						<p class="range-field">
 							Green
-							<input type="range" id="green" value="150" min="0" max="255" />
+							<input type="range" id="green" value="" min="0" max="255" />
 						</p>
 						<p class="range-field">
 							Blue
-							<input type="range" id="blue" value="150" min="0" max="255" />
+							<input type="range" id="blue" value="" min="0" max="255" />
 						</p>
 						<p class="range-field">
 							Opacity
-							<input type="range" id="alpha" step="0.1" value="0.7" min="0" max="1" />
+							<input type="range" id="alpha" step="0.1" value="" min="0" max="1" />
 						</p>
 					</div>
 				</div>
@@ -79,11 +83,13 @@
 </div>
 
 
-<div class="fixed-action-btn">
-  <a class="btn-floating btn-large black modal-trigger" href="#modal1">
-    <i class="large material-icons">settings</i>
-  </a>
-</div>
+
+  <ul class="fixed-btn">
+    <li><a class="btn-floating yellow darken-1 modal-trigger" href="#modal1"><i class="material-icons">settings</i></a></li>
+		<li><a class="btn-floating blue" onclick="changeColor();"><i class="material-icons">shuffle</i></a></li>
+		<li><a class="btn-floating green" onclick="downloadImage();"><i class="material-icons">file_download</i></a></li>
+  </ul>
+
 
 
 <script type="text/javascript">
@@ -98,6 +104,23 @@
     var elems = document.querySelectorAll('.modal');
     var instances = M.Modal.init(elems, {});
   });
+	</script>
+
+	<script type="text/javascript">
+		 document.addEventListener('DOMContentLoaded', function() {
+		var elems = document.querySelectorAll('.fixed-action-btn');
+		let fixedBtn = document.querySelector('#fixed-btn');
+		var instance = M.FloatingActionButton.init(elems, {
+			hoverEnabled: false
+		});
+
+		var instance = M.FloatingActionButton.getInstance(elems[0]);
+		instance.open();
+	});
+	
+	document.addEventListener('change', function() {
+		instance.open();
+	})
 	</script>
 
 <script type="text/javascript" src="./main.js"></script>
